@@ -1,0 +1,94 @@
+table 'analytics vw_assortment_action'
+	lineageTag: 9cbafd67-b9aa-40f3-9b78-1d1a487d9bc9
+
+	column sku_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 56a9a4ad-16d5-40a6-981b-44ebf4ca65bf
+		summarizeBy: none
+		sourceColumn: sku_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_name
+		dataType: string
+		lineageTag: 1bdbcdf5-0e4b-4fd5-8e76-a5a7017fb38d
+		summarizeBy: none
+		sourceColumn: sku_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_name
+		dataType: string
+		lineageTag: ad8ede26-9ced-4a08-9131-f48153552950
+		summarizeBy: none
+		sourceColumn: category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column net_sales
+		dataType: double
+		lineageTag: ea7ca2fa-547b-4969-93c3-557cc17a16d8
+		summarizeBy: sum
+		sourceColumn: net_sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gross_margin
+		dataType: double
+		lineageTag: 3f43e740-92dd-4bc9-beba-bc9c91cd7076
+		summarizeBy: sum
+		sourceColumn: gross_margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column units_sold
+		dataType: int64
+		formatString: 0
+		lineageTag: 4554aedb-cffb-40c9-9a65-690f54253921
+		summarizeBy: sum
+		sourceColumn: units_sold
+
+		annotation SummarizationSetBy = Automatic
+
+	column cumulative_sales_pct
+		dataType: double
+		lineageTag: 35eaf1ae-5a05-4338-84e9-1146a2de3d51
+		summarizeBy: sum
+		sourceColumn: cumulative_sales_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column abc_class
+		dataType: string
+		lineageTag: f40ded2b-823e-4e9e-aba9-03629687d1ed
+		summarizeBy: none
+		sourceColumn: abc_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column assortment_action
+		dataType: string
+		lineageTag: df0f0bc5-f54c-4d25-bb25-64c74db74e4c
+		summarizeBy: none
+		sourceColumn: assortment_action
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'analytics vw_assortment_action' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"),
+				    analytics_vw_assortment_action = Source{[Schema="analytics",Item="vw_assortment_action"]}[Data]
+				in
+				    analytics_vw_assortment_action
+
+	annotation PBI_ResultType = Table
+

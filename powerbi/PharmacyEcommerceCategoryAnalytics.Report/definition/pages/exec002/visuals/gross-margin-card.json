@@ -2,8 +2,5 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "gross-margin-card",
   "position": {"x": 392, "y": 150, "z": 2, "height": 144, "width": 300, "tabOrder": 3},
-  "visual": {
-    "visualType": "cardVisual",
-    "query": {"queryState": {"Data": {"projections": [{"field": {"Measure": {"Expression": {"SourceRef": {"Entity": "_Measures"}}, "Property": "Gross Margin"}}, "queryRef": "_Measures.Gross Margin", "nativeQueryRef": "Gross Margin", "format": "#,##0.00"}]}}}
-  }
+  "visual": {"visualType": "cardVisual", "query": {"queryState": {"Data": {"projections": [{"field": {"Measure": {"Expression": {"SourceRef": {"Entity": "_Measures"}}, "Property": "Gross Margin"}}, "queryRef": "_Measures.Gross Margin", "nativeQueryRef": "Gross Margin", "format": "#,##0.00"}]}}}}
 }

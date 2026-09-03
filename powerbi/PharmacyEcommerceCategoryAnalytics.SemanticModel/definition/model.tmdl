@@ -9,17 +9,21 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-ref table DimDate
-ref table DimBranch
-ref table DimCategory
-ref table DimProduct
-ref table DimSupplier
-ref table DimPromotion
-ref table DimChannel
-ref table FactSales
-ref table FactInventory
-ref table FactPurchaseOrder
-ref table FactWeb
+annotation PBI_QueryOrder = ["analytics vw_assortment_action","analytics vw_category_scorecard","analytics vw_ecommerce_funnel","analytics vw_inventory_risk","analytics vw_sales_enriched","analytics vw_supplier_performance"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'analytics vw_assortment_action'
+ref table 'analytics vw_category_scorecard'
+ref table 'analytics vw_ecommerce_funnel'
+ref table 'analytics vw_inventory_risk'
+ref table DateTableTemplate_b24b5dbd-04ec-414e-896a-f66f9d0f7e44
+ref table LocalDateTable_ee7c83f6-90fa-47e4-bd47-2498d12a511c
+ref table LocalDateTable_ccd8f01b-818c-4487-85b0-7e5534605547
+ref table 'analytics vw_sales_enriched'
+ref table LocalDateTable_34b21c47-14f5-48bc-a002-7586f5cbbc81
+ref table 'analytics vw_supplier_performance'
 ref table _Measures
 
 ref cultureInfo en-US
+

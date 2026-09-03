@@ -1,0 +1,78 @@
+table 'analytics vw_ecommerce_funnel'
+	lineageTag: 91244314-c66e-495f-a96e-57a2bb4eb0f6
+
+	column category_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b7563e5-1df4-452a-9613-47270453156b
+		summarizeBy: sum
+		sourceColumn: category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_name
+		dataType: string
+		lineageTag: 2ef4f11e-b9f7-472f-9a8d-66206cc7b216
+		summarizeBy: none
+		sourceColumn: category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column pdp_views
+		dataType: int64
+		formatString: 0
+		lineageTag: 7455507f-b8e0-40e1-a29d-0ea6b1acc4ac
+		summarizeBy: sum
+		sourceColumn: pdp_views
+
+		annotation SummarizationSetBy = Automatic
+
+	column add_to_cart
+		dataType: int64
+		formatString: 0
+		lineageTag: 97e686e0-269d-488c-be21-e1fac389ac32
+		summarizeBy: sum
+		sourceColumn: add_to_cart
+
+		annotation SummarizationSetBy = Automatic
+
+	column online_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 08d3f882-b459-490a-ac9c-be9866977ab7
+		summarizeBy: sum
+		sourceColumn: online_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column add_to_cart_rate
+		dataType: double
+		lineageTag: 173ec234-fede-4834-a69a-dacf4bc21188
+		summarizeBy: sum
+		sourceColumn: add_to_cart_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column conversion_rate
+		dataType: double
+		lineageTag: 07767e23-04b8-4f10-96ca-cd6de504a10b
+		summarizeBy: sum
+		sourceColumn: conversion_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'analytics vw_ecommerce_funnel' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"),
+				    analytics_vw_ecommerce_funnel = Source{[Schema="analytics",Item="vw_ecommerce_funnel"]}[Data]
+				in
+				    analytics_vw_ecommerce_funnel
+
+	annotation PBI_ResultType = Table
+

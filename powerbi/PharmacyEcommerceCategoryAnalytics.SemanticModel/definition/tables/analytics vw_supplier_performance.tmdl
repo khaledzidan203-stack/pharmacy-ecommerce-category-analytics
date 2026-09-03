@@ -1,0 +1,97 @@
+table 'analytics vw_supplier_performance'
+	lineageTag: 925c007f-87c8-40a2-85ac-d8240e7d2b3c
+
+	column supplier_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 79d36771-97b2-473a-969e-c166e6ce1433
+		summarizeBy: none
+		sourceColumn: supplier_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier_name
+		dataType: string
+		lineageTag: 28471e93-5d64-4601-b088-e9214aff3135
+		summarizeBy: none
+		sourceColumn: supplier_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ordered_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f0b9cdf-2a94-4b03-83b6-df50eebdfcaf
+		summarizeBy: none
+		sourceColumn: ordered_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column received_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: f3decd45-e40c-42da-aed1-0120b6fd5f0a
+		summarizeBy: none
+		sourceColumn: received_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column fill_rate
+		dataType: double
+		lineageTag: aefd4f59-f866-4e07-963b-0fea87e12bb3
+		summarizeBy: none
+		sourceColumn: fill_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column actual_lead_time_days
+		dataType: double
+		lineageTag: 731a4182-fa7b-49f7-bfc8-b17fc8f5c0c7
+		summarizeBy: none
+		sourceColumn: actual_lead_time_days
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column target_fill_rate
+		dataType: double
+		lineageTag: 5cafae37-a677-426e-98f9-8863eadfcadb
+		summarizeBy: none
+		sourceColumn: target_fill_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column target_lead_time_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 79e61062-65ca-4065-8a96-5ae77d32e980
+		summarizeBy: none
+		sourceColumn: target_lead_time_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column late_po_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e248785-67d4-490c-89cd-07d1bee03e70
+		summarizeBy: none
+		sourceColumn: late_po_count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'analytics vw_supplier_performance' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"),
+				    analytics_vw_supplier_performance = Source{[Schema="analytics",Item="vw_supplier_performance"]}[Data]
+				in
+				    analytics_vw_supplier_performance
+
+	annotation PBI_ResultType = Table
+

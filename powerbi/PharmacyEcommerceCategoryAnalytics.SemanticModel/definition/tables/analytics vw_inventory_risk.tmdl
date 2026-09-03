@@ -1,0 +1,153 @@
+table 'analytics vw_inventory_risk'
+	lineageTag: 817c20b1-741c-4716-9c87-dab9318a7d25
+
+	column snapshot_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f8065a63-4fa1-445c-8c0a-cf31da6a83ee
+		summarizeBy: none
+		sourceColumn: snapshot_date
+
+		variation Variation
+			isDefault
+			relationship: dcab6eb3-612e-4a46-9a21-c72298534859
+			defaultHierarchy: LocalDateTable_ee7c83f6-90fa-47e4-bd47-2498d12a511c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column branch_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e1af598d-8411-4153-888b-89a5f95893b8
+		summarizeBy: sum
+		sourceColumn: branch_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column branch_name
+		dataType: string
+		lineageTag: f7b92847-96f5-46be-b657-eb039372fe4c
+		summarizeBy: none
+		sourceColumn: branch_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 49fc6fd2-dc62-4377-89f1-42859e36d293
+		summarizeBy: none
+		sourceColumn: sku_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_name
+		dataType: string
+		lineageTag: 19d971bd-f8c4-4490-b646-e70b6dff6bd1
+		summarizeBy: none
+		sourceColumn: sku_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_name
+		dataType: string
+		lineageTag: 20d5d981-c1d9-4332-9b0f-944dc438b269
+		summarizeBy: none
+		sourceColumn: category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column stock_units
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d5e33b1-b058-4696-9c1a-e1ae50efad09
+		summarizeBy: sum
+		sourceColumn: stock_units
+
+		annotation SummarizationSetBy = Automatic
+
+	column stock_cost
+		dataType: double
+		lineageTag: d522e09d-c54e-4cc5-a703-236af1c15ed7
+		summarizeBy: sum
+		sourceColumn: stock_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column expiry_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 916e6d9e-f169-4a89-b24b-18ac8cf5f108
+		summarizeBy: none
+		sourceColumn: expiry_date
+
+		variation Variation
+			isDefault
+			relationship: 5ae7e11d-6ab9-49a9-95f6-f70c279eb2ad
+			defaultHierarchy: LocalDateTable_ccd8f01b-818c-4487-85b0-7e5534605547.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column days_of_coverage
+		dataType: double
+		lineageTag: e66a5b46-1fc3-4c1a-aebb-183d5d85c56f
+		summarizeBy: sum
+		sourceColumn: days_of_coverage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column oos_flag
+		dataType: int64
+		formatString: 0
+		lineageTag: ea1091d0-eb33-4b0d-a346-1f0e33222b72
+		summarizeBy: sum
+		sourceColumn: oos_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column near_expiry_flag
+		dataType: int64
+		formatString: 0
+		lineageTag: 6fb5c75e-80d6-4317-8743-53790431c893
+		summarizeBy: sum
+		sourceColumn: near_expiry_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column dead_stock_flag
+		dataType: int64
+		formatString: 0
+		lineageTag: 45868d89-5b06-4922-925e-7444cbe83697
+		summarizeBy: sum
+		sourceColumn: dead_stock_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column overstock_flag
+		dataType: int64
+		formatString: 0
+		lineageTag: e9c67337-7b2c-44ec-8c4e-f8ea0dfb6fff
+		summarizeBy: sum
+		sourceColumn: overstock_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'analytics vw_inventory_risk' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"),
+				    analytics_vw_inventory_risk = Source{[Schema="analytics",Item="vw_inventory_risk"]}[Data]
+				in
+				    analytics_vw_inventory_risk
+
+	annotation PBI_ResultType = Table
+

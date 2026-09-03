@@ -1,0 +1,118 @@
+table DateTableTemplate_b24b5dbd-04ec-414e-896a-f66f9d0f7e44
+	isHidden
+	isPrivate
+	lineageTag: 76b480b0-4ede-4243-b70c-8048b5df7e4f
+
+	column Date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 78d0f34f-6d49-4336-9543-841072b70db2
+		dataCategory: PaddedDateTableDates
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = User
+
+	column Year = YEAR([Date])
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 20a4dbac-a81e-4038-8307-8dbc457fb166
+		dataCategory: Years
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = Year
+
+	column MonthNo = MONTH([Date])
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8c01fe52-32c7-4fe8-b2f7-a49587f2cedd
+		dataCategory: MonthOfYear
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = MonthNumber
+
+	column Month = FORMAT([Date], "MMMM")
+		dataType: string
+		isHidden
+		lineageTag: 854fc769-a833-4e7d-86fb-ec55864e8c80
+		dataCategory: Months
+		summarizeBy: none
+		sortByColumn: MonthNo
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = Month
+
+	column QuarterNo = INT(([MonthNo] + 2) / 3)
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 70451854-3644-4a35-b6be-6cc71795d96f
+		dataCategory: QuarterOfYear
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = QuarterNumber
+
+	column Quarter = "Qtr " & [QuarterNo]
+		dataType: string
+		isHidden
+		lineageTag: 348ae28a-624a-4b6a-a6c4-7c92fbfe6fa6
+		dataCategory: Quarters
+		summarizeBy: none
+		sortByColumn: QuarterNo
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = Quarter
+
+	column Day = DAY([Date])
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ccf4c235-1744-4330-8709-79ba76d00636
+		dataCategory: DayOfMonth
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = Day
+
+	hierarchy 'Date Hierarchy'
+		lineageTag: 893efd44-e8d8-4c77-8953-49247c46e665
+
+		level Year
+			lineageTag: ee4c5429-31eb-4c19-ac40-352df1062a55
+			column: Year
+
+		level Quarter
+			lineageTag: 501a1199-1b7b-40b9-b7e6-d93c0dac59c6
+			column: Quarter
+
+		level Month
+			lineageTag: 90e7e781-7272-4e4f-b0cf-2bc11871e273
+			column: Month
+
+		level Day
+			lineageTag: 32d195fb-c763-412e-b387-ab715ef9f4c5
+			column: Day
+
+		annotation TemplateId = DateHierarchy
+
+	partition DateTableTemplate_b24b5dbd-04ec-414e-896a-f66f9d0f7e44 = calculated
+		mode: import
+		source = Calendar(Date(2015,1,1), Date(2015,1,1))
+
+	annotation __PBI_TemplateDateTable = true
+
+	annotation DefaultItem = DateHierarchy
+

@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "title-branch",
-  "position": {"x": 72, "y": 48, "z": 1, "height": 64, "width": 1100, "tabOrder": 0},
+  "position": {"x": 72, "y": 48, "z": 1, "height": 64, "width": 1200, "tabOrder": 0},
   "visual": {"visualType": "textbox", "objects": {"general": [{"properties": {"paragraphs": [{"textRuns": [{"value": "Branch & Channel Performance", "textStyle": {"fontWeight": "bold", "fontFamily": "Aptos Display", "fontSize": "28px", "color": "#173B35"}}]}]}}]}}
 }

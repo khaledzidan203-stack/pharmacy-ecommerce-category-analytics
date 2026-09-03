@@ -1,0 +1,208 @@
+table 'analytics vw_sales_enriched'
+	lineageTag: a2695739-1410-4128-8867-e9f82c0b28b1
+
+	column sales_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4b583f24-4e16-4ff6-b56e-5932b0f20808
+		summarizeBy: none
+		sourceColumn: sales_date
+
+		variation Variation
+			isDefault
+			relationship: a30f0134-5b00-4ab1-ba88-794a6c16cd6b
+			defaultHierarchy: LocalDateTable_34b21c47-14f5-48bc-a002-7586f5cbbc81.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column branch_id
+		dataType: int64
+		formatString: 0
+		lineageTag: c5fb929f-3435-49dc-8327-9b40f3ce0e68
+		summarizeBy: sum
+		sourceColumn: branch_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column branch_name
+		dataType: string
+		lineageTag: 6159b020-24aa-4b4a-800d-74f68b31ac43
+		summarizeBy: none
+		sourceColumn: branch_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 7612f05c-70df-4dd1-985e-f84e95a77507
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column cluster_name
+		dataType: string
+		lineageTag: b8f1172d-2028-41da-9fc6-35d590f8d0e5
+		summarizeBy: none
+		sourceColumn: cluster_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5fa65db3-b4dd-4641-a78f-90bfa872662f
+		summarizeBy: none
+		sourceColumn: sku_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_name
+		dataType: string
+		lineageTag: b891e685-0052-40dd-bf47-7221b1f74c29
+		summarizeBy: none
+		sourceColumn: sku_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 45094b97-1553-4e1d-8c12-6bca34dff4de
+		summarizeBy: sum
+		sourceColumn: category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_name
+		dataType: string
+		lineageTag: e329ee76-d0db-4fe1-9c1d-64fa1cf5e265
+		summarizeBy: none
+		sourceColumn: category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand
+		dataType: string
+		lineageTag: ecac4fe5-5d67-448e-92df-c4827d54816e
+		summarizeBy: none
+		sourceColumn: brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9575628d-5e9b-4629-891c-9b02c712a43f
+		summarizeBy: none
+		sourceColumn: supplier_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel
+		dataType: string
+		lineageTag: f40d8a07-c086-4def-b2ed-37857b920ac6
+		summarizeBy: none
+		sourceColumn: channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column promotion_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 50379f10-2115-4009-8c0e-253832de92ea
+		summarizeBy: sum
+		sourceColumn: promotion_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column units_sold
+		dataType: int64
+		formatString: 0
+		lineageTag: 5455fb1f-758f-4ce0-ab76-74d8dd6f4f55
+		summarizeBy: sum
+		sourceColumn: units_sold
+
+		annotation SummarizationSetBy = Automatic
+
+	column orders
+		dataType: int64
+		formatString: 0
+		lineageTag: f4fc9bfb-509d-4781-8d4c-a4a53861f0ab
+		summarizeBy: sum
+		sourceColumn: orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column customers
+		dataType: int64
+		formatString: 0
+		lineageTag: 450d072c-dd59-4536-8bf6-22aa8524c13a
+		summarizeBy: sum
+		sourceColumn: customers
+
+		annotation SummarizationSetBy = Automatic
+
+	column gross_sales
+		dataType: double
+		lineageTag: a16b8ce4-97f2-458d-ba85-4bbce4dd135a
+		summarizeBy: sum
+		sourceColumn: gross_sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discount_value
+		dataType: double
+		lineageTag: e238fbee-5c51-40a3-ae30-2917c0ffa3e0
+		summarizeBy: sum
+		sourceColumn: discount_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_sales
+		dataType: double
+		lineageTag: f0ef9b77-5341-46d1-b890-c5b1face93dd
+		summarizeBy: sum
+		sourceColumn: net_sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_value
+		dataType: double
+		lineageTag: 3df1405b-838d-41db-b904-09f5cc6918e3
+		summarizeBy: sum
+		sourceColumn: cost_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gross_margin
+		dataType: double
+		lineageTag: 43566931-a7df-4b6d-9305-f1e70875a080
+		summarizeBy: sum
+		sourceColumn: gross_margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'analytics vw_sales_enriched' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"),
+				    analytics_vw_sales_enriched = Source{[Schema="analytics",Item="vw_sales_enriched"]}[Data]
+				in
+				    analytics_vw_sales_enriched
+
+	annotation PBI_ResultType = Table
+

@@ -2,8 +2,5 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "stock-cost-card",
   "position": {"x": 1032, "y": 150, "z": 2, "height": 144, "width": 300, "tabOrder": 5},
-  "visual": {
-    "visualType": "cardVisual",
-    "query": {"queryState": {"Data": {"projections": [{"field": {"Measure": {"Expression": {"SourceRef": {"Entity": "_Measures"}}, "Property": "Stock Cost"}}, "queryRef": "_Measures.Stock Cost", "nativeQueryRef": "Stock Cost", "format": "#,##0.00"}]}}}
-  }
+  "visual": {"visualType": "cardVisual", "query": {"queryState": {"Data": {"projections": [{"field": {"Measure": {"Expression": {"SourceRef": {"Entity": "_Measures"}}, "Property": "Stock Cost"}}, "queryRef": "_Measures.Stock Cost", "nativeQueryRef": "Stock Cost", "format": "#,##0.00"}]}}}}
 }

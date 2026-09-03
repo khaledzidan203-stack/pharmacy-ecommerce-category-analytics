@@ -1,0 +1,98 @@
+table 'analytics vw_category_scorecard'
+	lineageTag: 4fdb7e4c-a40b-4ae0-b1b6-dcfb45324da8
+
+	column category_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3350d278-a25c-44c4-88d4-26c26206bf55
+		summarizeBy: none
+		sourceColumn: category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_name
+		dataType: string
+		lineageTag: e6a6dbd9-0ef9-4da3-a7ee-0db84390dea0
+		summarizeBy: none
+		sourceColumn: category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column net_sales
+		dataType: double
+		lineageTag: 4bd3f0e4-0fae-401d-8348-47447e6e4e3d
+		summarizeBy: none
+		sourceColumn: net_sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gross_margin
+		dataType: double
+		lineageTag: 6e51f28b-d8be-41df-bf36-6e6317b1b74e
+		summarizeBy: none
+		sourceColumn: gross_margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column margin_pct
+		dataType: double
+		lineageTag: 4fa84f49-e0bd-4529-b6be-1e1d15fed6ea
+		summarizeBy: none
+		sourceColumn: margin_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column units_sold
+		dataType: int64
+		formatString: 0
+		lineageTag: 124a04db-cd81-4aa7-84bf-90186b47ffb2
+		summarizeBy: none
+		sourceColumn: units_sold
+
+		annotation SummarizationSetBy = Automatic
+
+	column orders
+		dataType: int64
+		formatString: 0
+		lineageTag: b8066bb7-5401-4382-b3fa-82923060fb53
+		summarizeBy: none
+		sourceColumn: orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column customers
+		dataType: int64
+		formatString: 0
+		lineageTag: 20a96831-f9be-4581-a651-ad4821531c10
+		summarizeBy: none
+		sourceColumn: customers
+
+		annotation SummarizationSetBy = Automatic
+
+	column average_order_value
+		dataType: double
+		lineageTag: 584b4a8d-b6d3-47b2-a9a6-1d4a8215644b
+		summarizeBy: none
+		sourceColumn: average_order_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'analytics vw_category_scorecard' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"),
+				    analytics_vw_category_scorecard = Source{[Schema="analytics",Item="vw_category_scorecard"]}[Data]
+				in
+				    analytics_vw_category_scorecard
+
+	annotation PBI_ResultType = Table
+
