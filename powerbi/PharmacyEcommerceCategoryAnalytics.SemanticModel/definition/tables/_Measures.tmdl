@@ -65,6 +65,9 @@ table _Measures
 	measure 'Supplier Fill Rate' = DIVIDE(SUM('analytics vw_supplier_performance'[received_qty]), SUM('analytics vw_supplier_performance'[ordered_qty]))
 		formatString: 0.00%
 		displayFolder: Supplier
+	measure 'Ordered Quantity' = SUM('analytics vw_supplier_performance'[ordered_qty])
+		formatString: #,##0
+		displayFolder: Supplier
 	measure 'Average Lead Time' = AVERAGE('analytics vw_supplier_performance'[actual_lead_time_days])
 		formatString: #,##0.0
 		displayFolder: Supplier
