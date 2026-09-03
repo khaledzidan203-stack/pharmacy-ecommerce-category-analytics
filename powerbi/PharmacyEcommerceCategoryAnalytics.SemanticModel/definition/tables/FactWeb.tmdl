@@ -26,4 +26,4 @@ table FactWeb
 
 	partition FactWeb = m
 		mode: import
-		source = let Source = Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"), Table = Source{[Schema="staging",Item="fact_web_daily"]}[Data] in Table
+		source = Value.NativeQuery(Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"), "SELECT * FROM [staging].[fact_web_daily]", null, [EnableFolding=true])

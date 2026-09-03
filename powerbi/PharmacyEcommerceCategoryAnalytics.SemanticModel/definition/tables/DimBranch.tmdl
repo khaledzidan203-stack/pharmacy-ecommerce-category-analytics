@@ -33,4 +33,4 @@ table DimBranch
 
 	partition DimBranch = m
 		mode: import
-		source = let Source = Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"), Table = Source{[Schema="staging",Item="dim_branch"]}[Data] in Table
+		source = Value.NativeQuery(Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"), "SELECT * FROM [staging].[dim_branch]", null, [EnableFolding=true])

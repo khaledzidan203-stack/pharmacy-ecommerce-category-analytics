@@ -54,4 +54,4 @@ table FactInventory
 
 	partition FactInventory = m
 		mode: import
-		source = let Source = Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"), Table = Source{[Schema="analytics",Item="vw_inventory_risk"]}[Data] in Table
+		source = Value.NativeQuery(Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"), "SELECT * FROM [analytics].[vw_inventory_risk]", null, [EnableFolding=true])

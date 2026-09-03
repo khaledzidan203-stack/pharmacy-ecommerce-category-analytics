@@ -20,4 +20,4 @@ table DimCategory
 
 	partition DimCategory = m
 		mode: import
-		source = let Source = Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"), Table = Source{[Schema="staging",Item="dim_category"]}[Data] in Table
+		source = Value.NativeQuery(Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"), "SELECT * FROM [staging].[dim_category]", null, [EnableFolding=true])

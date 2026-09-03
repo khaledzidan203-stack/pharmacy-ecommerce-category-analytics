@@ -60,4 +60,4 @@ table FactSales
 
 	partition FactSales = m
 		mode: import
-		source = let Source = Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"), Table = Source{[Schema="staging",Item="fact_sales"]}[Data] in Table
+		source = Value.NativeQuery(Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"), "SELECT * FROM [staging].[fact_sales]", null, [EnableFolding=true])
