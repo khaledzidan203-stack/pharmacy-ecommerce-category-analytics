@@ -1,0 +1,27 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# SQL Server / dumps
+*.bak
+*.mdf
+*.ldf
+
+# Power BI binaries
+*.pbix
+*.pbit
+
+# Temporary / outputs
+outputs/
+temp/
+logs/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db

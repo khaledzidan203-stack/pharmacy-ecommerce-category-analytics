@@ -1,0 +1,14 @@
+{
+  "branch_count": 8,
+  "category_count": 6,
+  "supplier_count": 6,
+  "product_count": 60,
+  "sales_rows": 48722,
+  "web_rows": 10860,
+  "inventory_rows": 2880,
+  "purchase_order_rows": 450,
+  "net_sales": 4717692.51,
+  "gross_margin": 1672360.7,
+  "units_sold": 74057,
+  "orders": 57348
+}

@@ -1,0 +1,61 @@
+sku_id,sku_name,category_id,brand,supplier_id,unit_cost,regular_price,active_flag
+1001,SKU 1001 - Vitamins & Supplem 1,10,DailyHealth,102,29.0,40.44,1
+1002,SKU 1002 - Vitamins & Supplem 2,10,GlowLab,102,52.82,78.32,1
+1003,SKU 1003 - Vitamins & Supplem 3,10,NutriSea,103,23.69,40.55,1
+1004,SKU 1004 - Vitamins & Supplem 4,10,DailyHealth,105,36.35,56.93,1
+1005,SKU 1005 - Vitamins & Supplem 5,10,VitaPlus,105,71.72,115.46,1
+1006,SKU 1006 - Vitamins & Supplem 6,10,VitaPlus,106,53.18,83.76,1
+1007,SKU 1007 - Vitamins & Supplem 7,10,DailyHealth,105,72.66,97.25,1
+1008,SKU 1008 - Vitamins & Supplem 8,10,DailyHealth,103,22.33,31.68,1
+1009,SKU 1009 - Vitamins & Supplem 9,10,GlowLab,103,37.65,68.89,1
+1010,SKU 1010 - Vitamins & Supplem 10,10,DailyHealth,103,26.45,41.91,1
+1011,SKU 1011 - Dermocosmetics 1,20,DermaSoft,104,57.96,89.63,1
+1012,SKU 1012 - Dermocosmetics 2,20,SunGuard,101,18.18,24.36,1
+1013,SKU 1013 - Dermocosmetics 3,20,PureDerm,105,16.53,29.91,1
+1014,SKU 1014 - Dermocosmetics 4,20,DermaSoft,102,6.74,9.18,1
+1015,SKU 1015 - Dermocosmetics 5,20,DermaSoft,104,51.52,81.66,1
+1016,SKU 1016 - Dermocosmetics 6,20,PureDerm,106,74.41,102.87,1
+1017,SKU 1017 - Dermocosmetics 7,20,DermaSoft,101,48.67,65.6,1
+1018,SKU 1018 - Dermocosmetics 8,20,PureDerm,101,9.21,14.75,1
+1019,SKU 1019 - Dermocosmetics 9,20,SkinLab,103,34.92,52.51,1
+1020,SKU 1020 - Dermocosmetics 10,20,PureDerm,101,64.24,109.9,1
+1021,SKU 1021 - Oral Care 1,30,BrightDent,105,37.03,66.19,1
+1022,SKU 1022 - Oral Care 2,30,BrightDent,104,62.96,87.53,1
+1023,SKU 1023 - Oral Care 3,30,BrightDent,105,47.9,70.06,1
+1024,SKU 1024 - Oral Care 4,30,BrightDent,103,47.65,84.28,1
+1025,SKU 1025 - Oral Care 5,30,BrightDent,101,47.87,70.93,1
+1026,SKU 1026 - Oral Care 6,30,SmileCare,101,8.96,13.42,1
+1027,SKU 1027 - Oral Care 7,30,OralPro,101,29.87,53.02,1
+1028,SKU 1028 - Oral Care 8,30,OralPro,104,37.16,49.86,1
+1029,SKU 1029 - Oral Care 9,30,SmileCare,101,30.03,53.3,1
+1030,SKU 1030 - Oral Care 10,30,SmileCare,103,47.85,67.94,1
+1031,SKU 1031 - Baby Care 1,40,MamaCare,106,18.18,25.19,1
+1032,SKU 1032 - Baby Care 2,40,BabyPure,105,27.95,50.04,1
+1033,SKU 1033 - Baby Care 3,40,MamaCare,103,62.26,111.49,1
+1034,SKU 1034 - Baby Care 4,40,BabyPure,103,14.18,25.39,1
+1035,SKU 1035 - Baby Care 5,40,LittleSteps,102,28.04,46.64,1
+1036,SKU 1036 - Baby Care 6,40,MamaCare,103,64.24,115.83,1
+1037,SKU 1037 - Baby Care 7,40,MamaCare,103,37.53,52.13,1
+1038,SKU 1038 - Baby Care 8,40,LittleSteps,102,40.66,53.86,1
+1039,SKU 1039 - Baby Care 9,40,BabyPure,106,72.75,133.7,1
+1040,SKU 1040 - Baby Care 10,40,BabyPure,101,28.31,51.8,1
+1041,SKU 1041 - Nutrition 1,50,FitBite,103,71.5,132.17,1
+1042,SKU 1042 - Nutrition 2,50,FitBite,103,9.84,15.49,1
+1043,SKU 1043 - Nutrition 3,50,FitBite,104,61.37,102.75,1
+1044,SKU 1044 - Nutrition 4,50,FitBite,102,47.89,68.78,1
+1045,SKU 1045 - Nutrition 5,50,LeanLife,106,37.33,68.32,1
+1046,SKU 1046 - Nutrition 6,50,FitBite,103,54.4,93.14,1
+1047,SKU 1047 - Nutrition 7,50,NutriGo,101,37.65,59.97,1
+1048,SKU 1048 - Nutrition 8,50,NutriGo,102,28.4,48.64,1
+1049,SKU 1049 - Nutrition 9,50,NutriGo,105,60.0,85.51,1
+1050,SKU 1050 - Nutrition 10,50,NutriGo,105,66.47,113.86,1
+1051,SKU 1051 - Medical Supplies 1,60,HealthTech,103,63.84,105.77,1
+1052,SKU 1052 - Medical Supplies 2,60,CarePlus,101,45.29,66.04,1
+1053,SKU 1053 - Medical Supplies 3,60,CarePlus,101,29.14,52.85,1
+1054,SKU 1054 - Medical Supplies 4,60,MediHome,102,39.49,54.8,1
+1055,SKU 1055 - Medical Supplies 5,60,MediHome,101,26.71,36.78,1
+1056,SKU 1056 - Medical Supplies 6,60,HealthTech,101,22.54,41.63,1
+1057,SKU 1057 - Medical Supplies 7,60,HealthTech,105,67.95,108.9,1
+1058,SKU 1058 - Medical Supplies 8,60,MediHome,102,33.86,50.06,1
+1059,SKU 1059 - Medical Supplies 9,60,CarePlus,106,28.16,37.01,1
+1060,SKU 1060 - Medical Supplies 10,60,HealthTech,101,42.66,55.81,1

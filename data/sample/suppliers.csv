@@ -1,0 +1,7 @@
+supplier_id,supplier_name,target_fill_rate,target_lead_time_days
+101,Gulf Health Distribution,0.96,5
+102,Arabian Consumer Care,0.97,4
+103,Wellness Trading Co.,0.94,7
+104,Dermacare Supply,0.98,4
+105,Family Care Distribution,0.95,6
+106,MedEquip Partners,0.93,8

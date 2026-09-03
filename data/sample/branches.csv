@@ -1,0 +1,9 @@
+branch_id,branch_name,city,region,cluster_name,store_size
+1,Khobar Central,Khobar,Eastern,A,Large
+2,Khobar North,Khobar,Eastern,B,Medium
+3,Dammam Corniche,Dammam,Eastern,A,Large
+4,Dammam West,Dammam,Eastern,B,Medium
+5,Dhahran Gate,Dhahran,Eastern,A,Medium
+6,Jubail City,Jubail,Eastern,B,Medium
+7,Qatif Plaza,Qatif,Eastern,C,Small
+8,Online Fulfillment Hub,Khobar,Eastern,E-COM,Hub

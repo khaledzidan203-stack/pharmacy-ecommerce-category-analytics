@@ -1,0 +1,67 @@
+PYTHON VALIDATION
+PASS | duplicate branch keys: 0
+PASS | duplicate category keys: 0
+PASS | duplicate supplier keys: 0
+PASS | duplicate product keys: 0
+PASS | duplicate sales grain: 0
+PASS | duplicate inventory grain: 0
+PASS | duplicate web grain: 0
+PASS | orphan sales products: 0
+PASS | orphan sales branches: 0
+PASS | orphan product suppliers: 0
+PASS | orphan product categories: 0
+PASS | orphan inventory products: 0
+PASS | sales arithmetic errors: 0
+PASS | negative net sales: 0
+PASS | negative cost: 0
+PASS | negative inventory: 0
+PASS | invalid purchase order quantities: 0
+PASS | add-to-cart exceeds PDP views: 0
+PASS | online orders exceed add-to-cart: 0
+PASS | baseline reconciliation
+{
+  "branch_count": 8,
+  "category_count": 6,
+  "supplier_count": 6,
+  "product_count": 60,
+  "sales_rows": 48722,
+  "web_rows": 10860,
+  "inventory_rows": 2880,
+  "purchase_order_rows": 450,
+  "net_sales": 4717692.51,
+  "gross_margin": 1672360.7,
+  "units_sold": 74057,
+  "orders": 57348
+}
+VALIDATION PASS
+
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 772, in warm_spreadsheet_runtime
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/connection.py", line 37, in get_or_create_client
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/daemon.py", line 124, in start_daemon
+TimeoutError: Timed out waiting for artifact tool daemon socket. Set ARTIFACT_TOOL_RPC_DAEMON_STARTUP_TIMEOUT_S=<seconds> to increase the limit.
+
+
+PYTHON EDA
+# Python Analytical Findings
+
+- Top category by net sales: **Vitamins & Supplements** (1,024,245.71 SAR).
+- Portfolio net sales: **4,717,692.51 SAR**; gross margin: **1,672,360.70 SAR**.
+- Latest stock cost: **737,006.43 SAR**; near-expiry units within 90 days: **3,314**.
+- Highest e-commerce PDP-to-order conversion category: **Dermocosmetics** (2.82%).
+- Average PO fill rate: **95.00%**; average actual lead time: **5.6 days**.
+
+> Findings are descriptive and based only on synthetic portfolio data. They do not imply causal relationships.
+
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 720, in _warm_feature_flows
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 704, in _warm_collaboration_flows
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/generated/interface/models.py", line 32317, in hydrate_crdt_from_proto
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/remote.py", line 749, in __call__
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/client.py", line 150, in call
+artifact_tool.rpc.client.RemoteError: hydrateCrdtFromProto requires an empty collaborative document.
