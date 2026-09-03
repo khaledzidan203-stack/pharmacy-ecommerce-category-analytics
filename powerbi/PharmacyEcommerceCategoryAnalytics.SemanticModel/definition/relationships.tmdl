@@ -1,0 +1,59 @@
+relationship 11a3d1f0-2b4c-4d5e-8f60-7192a3b4c5d6
+	fromColumn: FactSales.sales_date
+	toColumn: DimDate.Date
+
+relationship 22b4e2f1-3c5d-4e6f-9061-82a3b4c5d6e7
+	fromColumn: FactSales.branch_id
+	toColumn: DimBranch.branch_id
+
+relationship 33c5f3a2-4d6e-4f70-a172-93b4c5d6e7f8
+	fromColumn: FactSales.sku_id
+	toColumn: DimProduct.sku_id
+
+relationship 44d604b3-5e7f-4081-b283-a4c5d6e7f809
+	fromColumn: FactSales.channel
+	toColumn: DimChannel.channel
+
+relationship 55e715c4-6f80-4192-b394-b5d6e7f8091a
+	fromColumn: FactInventory.snapshot_date
+	toColumn: DimDate.Date
+
+relationship 66f826d5-7081-42a3-c4a5-c6e7f8091a2b
+	fromColumn: FactInventory.branch_id
+	toColumn: DimBranch.branch_id
+
+relationship 77f937e6-8192-43b4-d5b6-d7f8091a2b3c
+	fromColumn: FactInventory.sku_id
+	toColumn: DimProduct.sku_id
+
+relationship 88fa48f7-9203-44c5-e6c7-e8091a2b3c4d
+	fromColumn: FactPurchaseOrder.supplier_id
+	toColumn: DimSupplier.supplier_id
+
+relationship 99ab5908-a134-45d6-f7d8-f91a2b3c4d5e
+	fromColumn: FactPurchaseOrder.sku_id
+	toColumn: DimProduct.sku_id
+
+relationship aabc6a19-b245-46e7-08e9-a2b3c4d5e6f7
+	fromColumn: FactWeb.activity_date
+	toColumn: DimDate.Date
+
+relationship bbcd7b20-c356-47f8-19fa-b3c4d5e6f708
+	fromColumn: FactWeb.sku_id
+	toColumn: DimProduct.sku_id
+
+relationship ccde8c31-d467-4809-2a0b-c4d5e6f70819
+	fromColumn: DimProduct.category_id
+	toColumn: DimCategory.category_id
+
+relationship ddef9d42-e578-491a-3b1c-d5e6f708192a
+	fromColumn: DimProduct.supplier_id
+	toColumn: DimSupplier.supplier_id
+
+relationship ee0fae53-f689-4a2b-4c2d-e6f708192a3b
+	fromColumn: DimPromotion.category_id
+	toColumn: DimCategory.category_id
+
+relationship ff10bf64-079a-4b3c-5d3e-f708192a3b4c
+	fromColumn: FactSales.promotion_id
+	toColumn: DimPromotion.promotion_id

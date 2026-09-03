@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "diagrams": [
+    {
+      "name": "Pharmacy E-commerce Star Schema",
+      "entities": [
+        {"name": "DimDate", "x": 0, "y": 0, "z": 0},
+        {"name": "DimBranch", "x": 0, "y": 220, "z": 0},
+        {"name": "DimCategory", "x": 0, "y": 440, "z": 0},
+        {"name": "DimProduct", "x": 280, "y": 220, "z": 0},
+        {"name": "DimSupplier", "x": 280, "y": 440, "z": 0},
+        {"name": "DimPromotion", "x": 560, "y": 440, "z": 0},
+        {"name": "DimChannel", "x": 560, "y": 0, "z": 0},
+        {"name": "FactSales", "x": 840, "y": 0, "z": 0},
+        {"name": "FactInventory", "x": 840, "y": 220, "z": 0},
+        {"name": "FactPurchaseOrder", "x": 840, "y": 440, "z": 0},
+        {"name": "FactWeb", "x": 1120, "y": 0, "z": 0},
+        {"name": "_Measures", "x": 1120, "y": 440, "z": 0}
+      ]
+    }
+  ]
+}

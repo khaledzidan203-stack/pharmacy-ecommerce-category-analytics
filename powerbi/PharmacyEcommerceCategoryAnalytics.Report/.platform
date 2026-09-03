@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Pharmacy E-commerce Category Analytics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a8f4d1c2-9b63-4e27-8a51-6d0f2c7b9e14"
+  }
+}

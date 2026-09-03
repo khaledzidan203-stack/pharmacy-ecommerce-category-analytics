@@ -1,0 +1,36 @@
+table DimBranch
+	lineageTag: 7c3d4e5f-6071-8293-a4b5-c6d7e8f90112
+
+	column branch_id
+		dataType: int64
+		isHidden
+		isKey
+		summarizeBy: none
+		lineageTag: 7c3d4e5f-6071-8293-a4b5-c6d7e8f90113
+		sourceColumn: branch_id
+	column branch_name
+		dataType: string
+		summarizeBy: none
+		lineageTag: 7c3d4e5f-6071-8293-a4b5-c6d7e8f90114
+		sourceColumn: branch_name
+	column city
+		dataType: string
+		summarizeBy: none
+		lineageTag: 7c3d4e5f-6071-8293-a4b5-c6d7e8f90115
+		sourceColumn: city
+	column region
+		dataType: string
+		summarizeBy: none
+		sourceColumn: region
+	column cluster_name
+		dataType: string
+		summarizeBy: none
+		sourceColumn: cluster_name
+	column store_size
+		dataType: string
+		summarizeBy: none
+		sourceColumn: store_size
+
+	partition DimBranch = m
+		mode: import
+		source = let Source = Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"), Table = Source{[Schema="staging",Item="dim_branch"]}[Data] in Table

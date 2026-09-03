@@ -1,0 +1,63 @@
+table FactSales
+	lineageTag: c28293a4-b5c6-d7e8-f901-122334455667
+
+	column sales_date
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: sales_date
+	column branch_id
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: branch_id
+	column sku_id
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: sku_id
+	column channel
+		dataType: string
+		summarizeBy: none
+		sourceColumn: channel
+	column promotion_id
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: promotion_id
+	column units_sold
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: units_sold
+	column orders
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: orders
+	column customers
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: customers
+	column gross_sales
+		dataType: double
+		formatString: #,##0.00;(#,##0.00);-
+		summarizeBy: sum
+		sourceColumn: gross_sales
+	column discount_value
+		dataType: double
+		formatString: #,##0.00;(#,##0.00);-
+		summarizeBy: sum
+		sourceColumn: discount_value
+	column net_sales
+		dataType: double
+		formatString: #,##0.00;(#,##0.00);-
+		summarizeBy: sum
+		sourceColumn: net_sales
+	column cost_value
+		dataType: double
+		formatString: #,##0.00;(#,##0.00);-
+		summarizeBy: sum
+		sourceColumn: cost_value
+
+	partition FactSales = m
+		mode: import
+		source = let Source = Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"), Table = Source{[Schema="staging",Item="fact_sales"]}[Data] in Table

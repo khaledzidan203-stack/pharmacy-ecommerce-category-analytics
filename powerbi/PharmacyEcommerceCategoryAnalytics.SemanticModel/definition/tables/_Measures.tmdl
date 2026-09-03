@@ -1,0 +1,143 @@
+table _Measures
+	lineageTag: 0a1b2c3d-4e5f-6071-8293-a4b5c6d7e8f0
+
+	measure 'Net Sales' = SUM(FactSales[net_sales])
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Core
+	measure 'Gross Sales' = SUM(FactSales[gross_sales])
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Commercial
+	measure 'Discount Value' = SUM(FactSales[discount_value])
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Commercial
+	measure 'Cost Value' = SUM(FactSales[cost_value])
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Commercial
+	measure 'Gross Margin' = [Net Sales] - [Cost Value]
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Commercial
+	measure 'Margin %' = DIVIDE([Gross Margin], [Net Sales])
+		formatString: 0.00%
+		displayFolder: Commercial
+	measure 'Units Sold' = SUM(FactSales[units_sold])
+		formatString: #,##0
+		displayFolder: Core
+	measure 'Orders' = SUM(FactSales[orders])
+		formatString: #,##0
+		displayFolder: Core
+	measure 'Customers' = SUM(FactSales[customers])
+		formatString: #,##0
+		displayFolder: Core
+	measure 'Average Order Value' = DIVIDE([Net Sales], [Orders])
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Commercial
+	measure 'Average Selling Price' = DIVIDE([Net Sales], [Units Sold])
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Commercial
+	measure 'Average Discount %' = DIVIDE([Discount Value], [Gross Sales])
+		formatString: 0.00%
+		displayFolder: Commercial
+
+	measure 'E-commerce Sales' = CALCULATE([Net Sales], DimChannel[channel] = "E-commerce")
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: E-commerce
+	measure 'Store Sales' = CALCULATE([Net Sales], DimChannel[channel] = "Store")
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: E-commerce
+	measure 'E-commerce Sales Mix %' = DIVIDE([E-commerce Sales], [Net Sales])
+		formatString: 0.00%
+		displayFolder: E-commerce
+	measure 'PDP Views' = SUM(FactWeb[product_detail_views])
+		formatString: #,##0
+		displayFolder: E-commerce
+	measure 'Add to Cart' = SUM(FactWeb[add_to_cart])
+		formatString: #,##0
+		displayFolder: E-commerce
+	measure 'Online Orders' = SUM(FactWeb[online_orders])
+		formatString: #,##0
+		displayFolder: E-commerce
+	measure 'Add-to-Cart Rate' = DIVIDE([Add to Cart], [PDP Views])
+		formatString: 0.00%
+		displayFolder: E-commerce
+	measure 'Conversion Rate' = DIVIDE([Online Orders], [PDP Views])
+		formatString: 0.00%
+		displayFolder: E-commerce
+
+	measure 'Stock Units' = SUM(FactInventory[stock_units])
+		formatString: #,##0
+		displayFolder: Inventory
+	measure 'Stock Cost' = SUM(FactInventory[stock_cost])
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Inventory
+	measure 'OOS SKU Count' = CALCULATE(DISTINCTCOUNT(FactInventory[sku_id]), FactInventory[oos_flag] = 1)
+		formatString: #,##0
+		displayFolder: Inventory
+	measure 'OOS Rate' = DIVIDE([OOS SKU Count], DISTINCTCOUNT(FactInventory[sku_id]))
+		formatString: 0.00%
+		displayFolder: Inventory
+	measure 'Near Expiry Units' = CALCULATE([Stock Units], FactInventory[near_expiry_flag] = 1)
+		formatString: #,##0
+		displayFolder: Inventory
+	measure 'Near Expiry Stock Cost' = CALCULATE([Stock Cost], FactInventory[near_expiry_flag] = 1)
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Inventory
+	measure 'Dead Stock Units' = CALCULATE([Stock Units], FactInventory[dead_stock_flag] = 1)
+		formatString: #,##0
+		displayFolder: Inventory
+	measure 'Dead Stock Cost' = CALCULATE([Stock Cost], FactInventory[dead_stock_flag] = 1)
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Inventory
+	measure 'Overstock SKU Count' = CALCULATE(DISTINCTCOUNT(FactInventory[sku_id]), FactInventory[overstock_flag] = 1)
+		formatString: #,##0
+		displayFolder: Inventory
+	measure 'Average Days of Coverage' = AVERAGE(FactInventory[days_of_coverage])
+		formatString: #,##0.0
+		displayFolder: Inventory
+
+	measure 'Ordered Quantity' = SUM(FactPurchaseOrder[ordered_qty])
+		formatString: #,##0
+		displayFolder: Supplier
+	measure 'Received Quantity' = SUM(FactPurchaseOrder[received_qty])
+		formatString: #,##0
+		displayFolder: Supplier
+	measure 'Supplier Fill Rate' = DIVIDE([Received Quantity], [Ordered Quantity])
+		formatString: 0.00%
+		displayFolder: Supplier
+	measure 'Average Lead Time' = AVERAGEX(FactPurchaseOrder, DATEDIFF(FactPurchaseOrder[order_date], FactPurchaseOrder[received_date], DAY))
+		formatString: #,##0.0
+		displayFolder: Supplier
+	measure 'Late PO Count' = CALCULATE(COUNTROWS(FactPurchaseOrder), FactPurchaseOrder[received_date] > FactPurchaseOrder[expected_date])
+		formatString: #,##0
+		displayFolder: Supplier
+	measure 'Late PO Rate' = DIVIDE([Late PO Count], COUNTROWS(FactPurchaseOrder))
+		formatString: 0.00%
+		displayFolder: Supplier
+
+	measure 'Sales Contribution %' = DIVIDE([Net Sales], CALCULATE([Net Sales], ALLSELECTED(DimProduct)))
+		formatString: 0.00%
+		displayFolder: Comparison
+	measure 'Gross Margin Contribution %' = DIVIDE([Gross Margin], CALCULATE([Gross Margin], ALLSELECTED(DimProduct)))
+		formatString: 0.00%
+		displayFolder: Comparison
+	measure 'Promo Sales' = CALCULATE([Net Sales], FactSales[promotion_id] <> 0)
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Commercial
+	measure 'Non-Promo Sales' = CALCULATE([Net Sales], FactSales[promotion_id] = 0)
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Commercial
+	measure 'Promo Sales Mix %' = DIVIDE([Promo Sales], [Net Sales])
+		formatString: 0.00%
+		displayFolder: Commercial
+
+	measure 'MTD Sales' = TOTALMTD([Net Sales], DimDate[Date])
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Time Intelligence
+	measure 'Previous Month Sales' = CALCULATE([Net Sales], PREVIOUSMONTH(DimDate[Date]))
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Time Intelligence
+	measure 'MoM %' = DIVIDE([Net Sales] - [Previous Month Sales], [Previous Month Sales])
+		formatString: 0.00%
+		displayFolder: Time Intelligence
+	measure 'YTD Sales' = TOTALYTD([Net Sales], DimDate[Date])
+		formatString: #,##0.00;(#,##0.00);-
+		displayFolder: Time Intelligence

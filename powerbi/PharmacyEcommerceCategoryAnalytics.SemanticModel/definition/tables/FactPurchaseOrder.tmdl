@@ -1,0 +1,46 @@
+table FactPurchaseOrder
+	lineageTag: e4a5b6c7-d8e9-f011-2233-445566778899
+
+	column po_id
+		dataType: int64
+		isHidden
+		isKey
+		summarizeBy: none
+		sourceColumn: po_id
+	column supplier_id
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: supplier_id
+	column sku_id
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: sku_id
+	column order_date
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: order_date
+	column expected_date
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: expected_date
+	column received_date
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: received_date
+	column ordered_qty
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: ordered_qty
+	column received_qty
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: received_qty
+
+	partition FactPurchaseOrder = m
+		mode: import
+		source = let Source = Sql.Database(".\SQLEXPRESS", "PharmacyEcommerceCategoryAnalytics"), Table = Source{[Schema="staging",Item="fact_purchase_order"]}[Data] in Table

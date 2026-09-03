@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "net-sales-card",
+  "position": {"x": 72, "y": 150, "z": 2, "height": 144, "width": 300, "tabOrder": 2},
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {"queryState": {"Data": {"projections": [{"field": {"Measure": {"Expression": {"SourceRef": {"Entity": "_Measures"}}, "Property": "Net Sales"}}, "queryRef": "_Measures.Net Sales", "nativeQueryRef": "Net Sales", "format": "#,##0.00"}]}}}
+  }
+}
