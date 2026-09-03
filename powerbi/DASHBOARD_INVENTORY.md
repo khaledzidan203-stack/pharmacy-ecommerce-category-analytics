@@ -1,36 +1,144 @@
-# Dashboard Inventory
+# Power BI Dashboard Inventory
 
-1. **Executive Category Overview**
-   - Net Sales, Margin, AOV, E-commerce Mix, Stock Cost
-   - category ranking, margin vs sales, risk alerts
+The Power BI report is designed as the final visualization and decision-support layer of the project. It consumes validated SQL analytics views rather than duplicating complex transformation logic inside the report.
 
-2. **E-commerce Funnel**
-   - PDP Views → Add to Cart → Orders
-   - conversion by category/brand/SKU
-   - online sales mix and AOV
+## 1. Home
 
-3. **Category & SKU Performance**
-   - Category → Brand → SKU drill-down
-   - sales, margin, units, orders, contribution
+Purpose:
+- provide a clean navigation entry point
+- route users to each analytical domain
 
-4. **Assortment Optimization**
-   - ABC classes
-   - KEEP / OPTIMIZE / REVIEW flags
-   - sales-margin matrix
+Navigation targets:
+- Executive Overview
+- E-commerce Funnel
+- Category Performance
+- SKU & Assortment
+- Inventory & Availability
+- Supplier Performance
+- Pricing & Promotions
+- Branch & Channel Performance
 
-5. **Inventory & Availability**
-   - coverage, OOS, overstock, dead stock, near expiry
-   - branch/category heatmaps
+## 2. Executive Overview
 
-6. **Supplier Performance**
-   - fill rate, lead time, late POs, dependency
+Purpose:
+- management-level commercial health check
 
-7. **Pricing & Promotions**
-   - price, margin, discount depth
-   - descriptive pre/during/post comparisons
+Core KPIs:
+- Net Sales
+- Gross Margin
+- Margin %
+- Units Sold
+- Orders
+- Average Order Value
+- E-commerce Sales Mix %
+- Conversion Rate
 
-8. **Branch / Channel Analysis**
-   - store vs e-commerce
-   - city, cluster and branch localization
+Major analytical areas:
+- category sales and margin
+- e-commerce funnel summary
+- inventory-risk summary
+- supplier-service summary
 
-Use progressive disclosure, drillthrough and concise navigation. Avoid overloaded pages.
+## 3. E-commerce Funnel
+
+Primary SQL source:
+- `analytics.vw_ecommerce_funnel`
+
+Focus:
+- PDP Views
+- Add to Cart
+- Online Orders
+- Add-to-Cart Rate
+- Conversion Rate
+- category-level conversion performance
+
+## 4. Category Performance
+
+Primary SQL source:
+- `analytics.vw_category_scorecard`
+
+Focus:
+- category sales ranking
+- gross-margin ranking
+- margin %
+- units
+- contribution
+- commercial performance comparison
+
+## 5. SKU & Assortment
+
+Primary SQL source:
+- `analytics.vw_assortment_action`
+
+Focus:
+- SKU performance
+- assortment decision-support flags
+- stock versus demand
+- days of coverage
+- OOS / overstock / dead-stock / near-expiry context
+
+Assortment recommendations are decision-support outputs based on validated SQL logic; they are not autonomous commercial decisions.
+
+## 6. Inventory & Availability
+
+Primary SQL source:
+- `analytics.vw_inventory_risk`
+
+Focus:
+- stock units and stock cost
+- OOS
+- overstock
+- near expiry
+- dead stock
+- days of coverage
+- inventory-risk prioritization
+
+## 7. Supplier Performance
+
+Primary SQL source:
+- `analytics.vw_supplier_performance`
+
+Focus:
+- ordered versus received quantity
+- supplier fill rate
+- lead time
+- late purchase orders
+- supplier-service risk
+
+## 8. Pricing & Promotions
+
+Primary SQL source:
+- `analytics.vw_sales_enriched`
+
+Focus:
+- gross versus net sales
+- discount value and discount depth
+- promotional versus non-promotional sales
+- promotional sales mix
+- margin comparison
+
+Promotion analysis is descriptive only. The project does not claim causal uplift unless a separate causal methodology is implemented.
+
+## 9. Branch & Channel Performance
+
+Primary SQL source:
+- `analytics.vw_sales_enriched`
+
+Focus:
+- branch sales and margin
+- average order value
+- e-commerce sales
+- store sales
+- e-commerce channel mix
+- branch/channel ranking
+
+## Reporting Principles
+
+- SQL is the analytical source of truth.
+- Power BI is the visualization, filtering, comparison, ranking, and management-storytelling layer.
+- Import mode is preferred for this project scale.
+- Complex business transformations remain upstream in SQL.
+- DAX is used for report-level measures, ratios, and interaction logic.
+- Avoid unnecessary fact-to-fact, many-to-many, and bidirectional relationships.
+- Use progressive disclosure and concise navigation instead of overloaded report pages.
+- Validate important Power BI KPIs against SQL/Python baselines before final sign-off.
