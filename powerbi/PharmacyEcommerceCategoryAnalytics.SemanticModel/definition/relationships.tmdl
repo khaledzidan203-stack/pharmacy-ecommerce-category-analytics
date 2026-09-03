@@ -46,10 +46,6 @@ relationship ccde8c31-d467-4809-2a0b-c4d5e6f70819
 	fromColumn: DimProduct.category_id
 	toColumn: DimCategory.category_id
 
-relationship ddef9d42-e578-491a-3b1c-d5e6f708192a
-	fromColumn: DimProduct.supplier_id
-	toColumn: DimSupplier.supplier_id
-
 relationship ff10bf64-079a-4b3c-5d3e-f708192a3b4c
 	fromColumn: FactSales.promotion_id
 	toColumn: DimPromotion.promotion_id
