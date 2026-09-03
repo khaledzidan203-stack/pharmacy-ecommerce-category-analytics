@@ -16,11 +16,11 @@ table DimDate
 		lineageTag: 5a1b2c3d-4e5f-6071-8293-a4b5c6d7e8f1
 		sourceColumn: Year
 
-	column Month Number
+	column 'Month Number'
 		dataType: int64
 		summarizeBy: none
 		lineageTag: 5a1b2c3d-4e5f-6071-8293-a4b5c6d7e8f2
-		sourceColumn: Month Number
+		sourceColumn: 'Month Number'
 
 	column Month
 		dataType: string
@@ -28,11 +28,11 @@ table DimDate
 		lineageTag: 5a1b2c3d-4e5f-6071-8293-a4b5c6d7e8f3
 		sourceColumn: Month
 
-	column Year Month
+	column 'Year Month'
 		dataType: string
 		summarizeBy: none
 		lineageTag: 5a1b2c3d-4e5f-6071-8293-a4b5c6d7e8f4
-		sourceColumn: Year Month
+		sourceColumn: 'Year Month'
 
 	partition DimDate = m
 		mode: import
