@@ -2,6 +2,18 @@
 
 A production-style pharmacy e-commerce category analytics portfolio that combines **SQL Server analytics, Python validation, and Power BI reporting** to evaluate sales, margin, conversion, inventory risk, supplier performance, promotions, and assortment decisions using realistic synthetic retail data only.
 
+## Featured Portfolio
+
+**Khaled Zidan — Healthcare & Business Data Analytics**
+
+[Saudi Healthcare Analytics](https://github.com/khaledzidan203-stack/saudi-healthcare-analytics) ·
+[Hospital360](https://github.com/khaledzidan203-stack/Hospital360) ·
+[Online Retail Growth & Customer Intelligence](https://github.com/khaledzidan203-stack/online-retail-growth-customer-intelligence) ·
+[Pharmacy Category Management](https://github.com/khaledzidan203-stack/pharmacy-category-management) ·
+[Regional Sales Performance](https://github.com/khaledzidan203-stack/regional-sales-analytics-portfolio)
+
+**Core stack:** Power BI · SQL · Python · DAX · Analytics Engineering · Healthcare / Pharmacy / Retail Analytics
+
 ## Executive Summary
 
 The project connects pharmacy retail sales, e-commerce funnel behavior, assortment, pricing/promotions, inventory, supplier service, and profitability into one decision-support workflow for category and commercial teams.
