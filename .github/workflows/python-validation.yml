@@ -1,4 +1,4 @@
-name: Python Validation
+name: Repository Validation
 
 on:
   push:
@@ -6,12 +6,29 @@ on:
 
 jobs:
   validate:
+    name: Static analytical quality gate
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install -r requirements.txt
-      - run: python python/validate_portfolio.py
-      - run: pytest -q
+
+      - name: Install validation dependencies
+        run: pip install -r requirements.txt
+
+      - name: Protect validated analytical core
+        run: python scripts/validate_repository.py
+
+      - name: Validate public synthetic sample
+        run: python python/validate_portfolio.py
+
+      - name: Run clone-safe tests
+        run: pytest -q
+
+      - name: Compile Python sources
+        run: python -m py_compile python/validate_portfolio.py python/category_eda.py scripts/validate_repository.py tests/test_portfolio_data.py
