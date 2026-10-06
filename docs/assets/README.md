@@ -2,28 +2,25 @@
 
 This directory contains presentation-only visual assets for the Pharmacy E-commerce Category Analytics project.
 
-## Intended use
+## Current overview
 
-The primary project overview image stored here is used by the repository README to explain the end-to-end analytical workflow at a glance.
+`Pharmacy E-Commerce Analytics Pipeline.png`
 
-Recommended filename for the current overview:
+The main README uses this infographic as a high-level visual summary of the project.
 
-`pharmacy_ecommerce_category_analytics_infographic.png`
+The visual should be interpreted as a presentation schematic. Authoritative implementation details remain in the repository source and evidence files. In particular, the current governed SQL analytical views are:
 
-The overview should represent only repository-supported claims, including:
+- `analytics.vw_sales_enriched`
+- `analytics.vw_category_scorecard`
+- `analytics.vw_ecommerce_funnel`
+- `analytics.vw_inventory_risk`
+- `analytics.vw_supplier_performance`
+- `analytics.vw_assortment_action`
 
-- synthetic pharmacy retail and e-commerce data only;
-- SQL Server staging, validation, and six analytical views;
-- Python baseline validation and descriptive EDA;
-- Power BI PBIP/PBIR/TMDL source-controlled reporting;
-- nine report pages;
-- 22 current DAX measures in the saved semantic model;
-- 48,722 sales rows, 10,860 web-funnel rows, 2,880 inventory rows, and 450 purchase-order rows;
-- SAR 4,717,692.51 validated Net Sales and SAR 1,672,360.70 validated Gross Margin;
-- category, funnel, assortment, inventory, supplier, pricing/promotion, and branch/channel decision-support domains.
+The current saved Power BI implementation contains 22 explicit measures and 9 report pages.
 
 ## Evidence boundary
 
-Assets in this directory are presentation summaries only. They are not analytical source data, SQL validation evidence, Power BI screenshots, or replacements for governed documentation.
+Assets in this directory are not analytical source data, SQL validation evidence, Power BI runtime evidence or substitutes for PBIP/PBIR/TMDL source.
 
-Authoritative project claims remain defined by the repository data, SQL, Python validation scripts, PBIP/PBIR/TMDL source, KPI dictionary, validation baselines, and report definitions.
+Authoritative project claims are defined by the committed synthetic data, SQL, Python validation, Power BI project source, KPI dictionary, baseline contract and release-validation documentation.
